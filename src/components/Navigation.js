@@ -1,36 +1,17 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import React from 'react'
+import './Navigation.css'
 
 function Navigation() {
   return (
     <div>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">EcoFighter</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                    {/* <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown> */}
-                </Nav>
-                <Nav>
-                    <Nav.Link>Track</Nav.Link>
-                    <Nav.Link disabled>Visualize</Nav.Link>
-                    <Nav.Link disabled>Compete</Nav.Link>
-                    <Nav.Link disabled>Redeem</Nav.Link>
-                    <Nav.Link disabled>Social</Nav.Link>
-                    <Nav.Link disabled>Profile</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+        <ul>
+        <li><a href="/" style={{paddingTop: '14px', fontSize: '24px', fontWeight: '800', color: '#cc1a1a', position: 'relative'}}>EcoFighter<a href="/" style={{position: 'absolute', top: 4, right: -26, color: '#cc1a1a', borderRadius: '16px', zIndex: '-1', fontSize: '13px', fontWeight: '500'}}>.app</a></a></li>
+            <li><a href="#home" style={{marginLeft: '30px'}}>Product</a></li>
+            <li><a href="#news">Sponserships</a></li>
+            <li><a href="#contact">Our Mission</a></li>
+            <button className="nav-button" style={{float: 'right'}}>Join the Fight</button>
+            <li style={{float: 'right'}}><a class="active" href="#about">Login</a></li>
+        </ul>
     </div>
   );
 }
