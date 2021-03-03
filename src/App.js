@@ -1,35 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {
-  BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useHistory,
+  withRouter
 } from "react-router-dom";
 
 import Navigation from './components/Navigation'
 import Login from './components/Login'
 import Register from './components/Register'
+import Unavailable from './components/Unavailable'
 
 function App() {
+  const history = useHistory()
+
+  const [auth, setAuth] = useState(true)
+
+  const handleLogout = () => {
+    setAuth(false)
+    history.push('/')
+  }
+
+  const handleLogin = () => {
+    setAuth(true)
+    history.push('/tracking')
+  }
+
+  const handleRegister = () => {
+
+  }
+
   return (
-    <Router>
-      <Navigation />
+    <div>
+      <Navigation auth={auth} handleLogout={handleLogout} />
 
       <div style={{maxWidth: '1440px', margin: 'auto', marginTop: '50px'}}>
         <Switch>
           <Route path="/login">
-            <Login />
+            <Login handleLogin={handleLogin} />
           </Route>
           <Route path="/register">
-            <Register />
+            <Register handleRegister={handleRegister} />
+          </Route>
+          <Route path="/tracking">
+            <Unavailable />
+          </Route>
+          <Route path="/compete">
+            <Unavailable />
+          </Route>
+          <Route path="/quests">
+            <Unavailable />
+          </Route>
+          <Route path="/learn">
+            <Unavailable />
+          </Route>
+          <Route path="/shop">
+            <Unavailable />
+          </Route>
+          <Route path="/profile">
+            <Unavailable />
           </Route>
           <Route path="/">
             
           </Route>
         </Switch>
       </div>
-    </Router>
+    </div>
   );
 }
 
-export default App;
+export default withRouter(App);

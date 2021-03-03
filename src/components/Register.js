@@ -4,9 +4,9 @@ import {
   useHistory
 } from "react-router-dom";
 
-function Register() {
+function Register({ handleRegister }) {
   const history = useHistory()
-  
+
   return (
     <div>
       <center>
@@ -16,7 +16,7 @@ function Register() {
           <br />
           <input placeholder="Password" type="text" id="femail" name="fpassword" style={{width: '250px', marginTop: '15px',borderRadius: '8px', marginBottom: '0px', padding: '10px 20px', border: 'none', backgroundColor: '#e3e3e3', color: '#696969', fontWeight: '600'}} />
           <br />
-          <button className="nav-button" style={{width: '250px', fontWeight: '600'}}>Join the Fight</button>
+          <button className="nav-button" style={{width: '250px', fontWeight: '600'}} onClick={() => handleRegister()}>Join the Fight</button>
           <p style={{fontSize: '14px'}}>Already in the fight? <Link to="/login" style={{color: '#cc1a1a'}}>Login here.</Link></p>
       </center>
     </div>
